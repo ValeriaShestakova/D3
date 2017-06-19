@@ -1,3 +1,4 @@
+
 var level_id = 1;
 var editor = ace.edit("editor"); // теперь обращаться к редактору будем через editor
 editor.setTheme("ace/theme/monokai");
@@ -14,7 +15,7 @@ var iframe = document.getElementsByTagName('iframe')[0];
 var doc = iframe.contentDocument ||
   iframe.contentWindow.document;
 
-var code_ex = 'd3.select("body")    .append("svg")    .append("rect")    .attr("width", 50)    .attr("height", 200)    .style("fill", "blue");'
+var code_ex = 'd3.select("body")    .append("svg")    .append("line")    .attr("x1", 10)    .attr("y1", 10)     .attr("x2", 250)    .attr("y2", 300)    .style("stroke", "red")    .style("stroke-width", "4");'
 
       doc_ex.open();
       doc_ex.write('<script> function main(){')
@@ -28,6 +29,7 @@ var code_ex = 'd3.select("body")    .append("svg")    .append("rect")    .attr("
 
 
  function execute() {
+  document.getElementById('head').innerHTML = 'Результат выполнения кода';
   doc.open();
   doc.write('<script> function main(){')
   doc.write(editor.getValue());
@@ -44,14 +46,8 @@ var code_ex = 'd3.select("body")    .append("svg")    .append("rect")    .attr("
 
 
 function checking() {
-  var iframe = document.getElementsByTagName('iframe')[0];
-  var doc = iframe.contentDocument ||
-  iframe.contentWindow.document;
-  var iframe_ex = document.getElementsByTagName('iframe')[1];
-  var doc_ex = iframe_ex.contentDocument ||
-    iframe_ex.contentWindow.document;
-  var img_ex = new Image;
-  var img_sol = new Image;
+  var img_ex;
+  var img_sol;
   var img = new Image;
   var iframe_ex_body = doc_ex.getElementById('iframe_ex_body');
   var iframe_body = doc.getElementById('iframe_body');
@@ -59,18 +55,16 @@ function checking() {
   html2canvas(iframe_ex_body, {
         onrendered: function(canvas) {
           img_ex = canvas.toDataURL('image/png', 1);
-          //iframe_ex_body.appendChild(canvas);
            html2canvas(iframe_body, {
               onrendered: function(canvas) {
                 img_sol = canvas.toDataURL('image/png', 1);
-                //iframe_body.appendChild(canvas);
-                resemble(img_ex).compareTo(img_sol).onComplete(function(data){
-                  //window.open(img_ex, 'пример');
-                  //window.open(img_sol, 'решене');
+                //window.open(img_ex);
+                //window.open(img_sol);
+                resemble(img_sol).compareTo(img_ex).onComplete(function(data){
                   img.src = data.getImageDataUrl();
                   img.style.margin = '-10px';                //example.innerHTML = data.isSameDimensions;
-                  iframe_ex_body.innerHTML="";
-                  iframe_ex_body.appendChild(img);
+                  iframe_body.innerHTML="";
+                  iframe_body.appendChild(img);
                   var innerr = document.getElementById('inner');
                   var next_btn = document.getElementById('next_btn');
                   if (data.misMatchPercentage < 1) {
@@ -121,7 +115,7 @@ var iframe = document.getElementsByTagName('iframe')[0];
 var doc = iframe.contentDocument ||
   iframe.contentWindow.document;
   level_id = level_id + 1;
-  document.getElementById('head').innerHTML = 'Пример';
+  document.getElementById('head').innerHTML = 'Результат выполнения кода';
   doc.open();
   doc.close();
   doc_ex.open();

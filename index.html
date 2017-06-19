@@ -8,7 +8,7 @@
   </head>
   <body>
     <header class="main-header">
-      <h1>Курсы D3 /</h1><span>Построение графов</span>
+      <h1>Курсы D3 /</h1><span>Рисование</span>
     </header>
     <main>
       <div class="task">
@@ -16,13 +16,16 @@
         <div class="theory" >
           <p id="theory">
             D3 реализует подход, называемый fluent interface. При чтении кода он выглядит как цепочка методов. Каждый метод вызывается на объекте, который вернул предыдущий метод. Чтобы код было удобно читать, каждый вызов располагается на отдельной строчке.<br />
-            Например, создадим прямоугольник красного цвета:<br />
+            Например, создадим линию синего цвета:<br />
             d3.select('body') // выбор в документе body<br />
-            &emsp;.append('svg') // добавление в body svg-контейнера<br />
-            &emsp;.append('rect') // добавление фигуры прямоугльник <br>
-            &emsp;.attr('width', 50) // задание ширины <br />
-            &emsp;.attr('height', 200) // задание высоты <br />
-            &emsp;.style('fill', 'blue') // заливка цветом <br />
+            &emsp;.append('svg') // добавление в body svg-контейнера, система координат начинается с верхнего левого угла и идет вправо вниз<br />
+            &emsp;.append('line') // добавление фигуры линия <br>
+            &emsp;.attr('x1', 20) // задание x-координаты первой точки <br />
+            &emsp;.attr('y1', 30) // задание y-координаты первой точки <br />
+            &emsp;.attr('x2', 300) // задание x-координаты второй точки <br />
+            &emsp;.attr('y2', 300) // задание y-координаты второй точки <br />
+            &emsp;.style('stroke', 'blue') // задание цвета линии<br />
+            &emsp;.style('stroke-width', '2') // задание толщины линии <br />
           </p>
         </div>
       </div>
@@ -31,21 +34,21 @@
         <div id="editor"></div>
         <div class="task">
           <h3>Задание</h3>
-          <p id="task"> Постройте красный прямоугольник </p>
+          <p id="task"> Нарисуйте линию красного цвета шириной 4px, с координатами точек (10;10) и (250; 300)</p>
         </div>
           <input type="button" class="btn doit-btn" value="Выполнить код" onclick="execute()"/>
           <input type="button" class="btn check-btn" value="Проверить" onclick="checking()"/>
       </div>
       <div class="image-container">
-        <h3>Результат выполнения кода</h3>
+        <h3 id="head">Результат выполнения кода</h3>
         <iframe src="javascript:true;"  name="iframe"  id="solution" class="solution">
         </iframe>
-        <h3 id="head">Пример</h3>
+        <h3>Пример</h3>
         <iframe src="javascript:true;"  name="iframe_ex" id="example" class="example">
         </iframe>
         <div class="btn-container">
         <div class="progress-bar"><div class="inner" id="inner">Плохо<span id="inner_span"></span></div></div>
-        <input type="button" class="btn check-btn next-btn" id="next_btn" value="Продолжить" onclick="next()"/>
+        <input type="button" class="btn check-btn next-btn" id="next_btn" value="Продолжить" onclick="next()" disabled/>
         </div>
       </div>
       <div class="level">
