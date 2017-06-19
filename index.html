@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Курсы D3</title>
+     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=cyrillic" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <header class="main-header">
+      <h1>Курсы D3 /</h1><span>Построение графов</span>
+    </header>
+    <main>
+      <div class="task">
+        <h2 id="task_h2">Первый уровень</h2>
+        <div class="theory" >
+          <p id="theory">
+            D3 реализует подход, называемый fluent interface. При чтении кода он выглядит как цепочка методов. Каждый метод вызывается на объекте, который вернул предыдущий метод. Чтобы код было удобно читать, каждый вызов располагается на отдельной строчке.<br />
+            Например, создадим прямоугольник красного цвета:<br />
+            d3.select('body') // выбор в документе body<br />
+            &emsp;.append('svg') // добавление в body svg-контейнера<br />
+            &emsp;.append('rect') // добавление фигуры прямоугльник <br>
+            &emsp;.attr('width', 50) // задание ширины <br />
+            &emsp;.attr('height', 200) // задание высоты <br />
+            &emsp;.style('fill', 'blue') // заливка цветом <br />
+          </p>
+        </div>
+      </div>
+      <div class="code-container">
+        <h3>Код</h3>
+        <div id="editor"></div>
+        <div class="task">
+          <h3>Задание</h3>
+          <p id="task"> Постройте красный прямоугольник </p>
+        </div>
+          <input type="button" class="btn doit-btn" value="Выполнить код" onclick="execute()"/>
+          <input type="button" class="btn check-btn" value="Проверить" onclick="checking()"/>
+      </div>
+      <div class="image-container">
+        <h3>Результат выполнения кода</h3>
+        <iframe src="javascript:true;"  name="iframe"  id="solution" class="solution">
+        </iframe>
+        <h3 id="head">Пример</h3>
+        <iframe src="javascript:true;"  name="iframe_ex" id="example" class="example">
+        </iframe>
+        <div class="btn-container">
+        <div class="progress-bar"><div class="inner" id="inner">Плохо<span id="inner_span"></span></div></div>
+        <input type="button" class="btn check-btn next-btn" id="next_btn" value="Продолжить" onclick="next()"/>
+        </div>
+      </div>
+      <div class="level">
+        <p>
+          Уровень прохождения: <b id="level">1/10</b>
+        </p>
+        <!-- <p class="point">
+          Количество баллов: <b>0/100</b>
+        </p> -->
+      </div>
+    </main>
+    <script src="http://d3js.org/d3.v3.min.js"> </script>
+    <script src="https://ajaxorg.github.io/ace-builds/src/ace.js"></script>
+    <script src="js/html2canvas.js"></script>
+    <script src="js/resemble.js"></script>
+    <script src="http://code.jquery.com/jquery-2.0.2.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+  </body>
+</html>
