@@ -46,6 +46,9 @@ var code_ex = 'd3.select("body")    .append("svg")    .append("line")    .attr("
 
 
 function checking() {
+  doc.open();
+  doc.close();
+  execute();
   var img_ex = null;
   var img_sol = null;
   var img = new Image;
@@ -134,7 +137,7 @@ var doc = iframe.contentDocument ||
     case 2:
       task_h2.innerHTML = "Второй уровень";
       theory.innerHTML = "Далее мы попробуем создать круг. Подход такой же, так что ничего сложного:)<br />            d3.select('body') // выбор в документе body<br />&emsp;.append('svg') // добавление в body svg-контейнера, система координат начинается с верхнего левого угла и идет вправо вниз<br />&emsp;.append('circle') // добавление фигуры круг <br>&emsp;.attr('cx', 100) // задание x-координаты центра окружности <br />&emsp;.attr('cy', 100) // задание y-координаты центра окружности <br />&emsp;.attr('r', 50) // задание радиуса окружности <br />&emsp;.style('stroke', 'blue') // задание цвета линии<br />&emsp;.style('stroke-width', '2') // задание толщины линии <br />&emsp;.style('fill', 'red') // задание цвета заливки окружности<br />";
-      task.innerHTML = "hfgvbdfds";
+      task.innerHTML = "Нарисуйте круг  с координатами центра (150; 70), радиусом 60, цветом линии зеленым, шириной линии 2px и желтой заливкой";
       var code_ex = "d3.select('body')            .append('svg')            .append('circle')            .attr('cx', 150)            .attr('cy', 70)            .attr('r', 60)            .style('stroke', 'green')            .style('stroke-width', '2')            .style('fill', 'yellow');"
         doc_ex.open();
         doc_ex.write('<script> function main(){')
@@ -151,7 +154,7 @@ var doc = iframe.contentDocument ||
         task_h2.innerHTML = "Третий уровень";
         theory.innerHTML = "На следующем этапе мы будем создавать прямоугольник. Подход такой же, так все просто:)<br />            d3.select('body') // выбор в документе body<br />&emsp;.append('svg') // добавление в body svg-контейнера, система координат начинается с верхнего левого угла и идет вправо вниз<br />&emsp;.append('rect') // добавление фигуры прямоугольник <br>&emsp;.attr('x', 10) // задание x-координаты левого верхнего угла <br />&emsp;.attr('y', 10) // задание y-координаты левого верхнего углв <br />&emsp;.attr('width', 100) // задание ширины прямоугольника <br />&emsp;.style('height', 100) // задание высоты прямоугольника<br />&emsp;.style('rx', 5) //дополнительно можно задать радиус для углов прямоугольника<br>&emsp;.style('stroke-width', '2') // задание толщины линии <br />&emsp;.style('stroke', 'black') // Задание цвета линии <br>&emsp;.style('fill', 'red') // задание цвета заливки прямоугольника<br />";
         task.innerHTML = "остройте прямоугольник с координатами начала (5;5), шириной 60, высотой 150, зеленого цвета, с линией бводки толщиной 5px, цвет линии красный. Также укажите радиус углов - 5px. P.S. Для выполнения этой задачи потребуется установить ширину и высоту svg-контейнера, рекомендуемые значения (400, 300) соответсвенно.";
-        var code_ex = "d3.select('body')    .append('svg')    .append('rect')    .attr('x', 5)    .attr('y', 5)    .attr('width', 60)    .attr('height', 150)    .attr('rx', 5)    .style('stroke', 'red')    .style('stroke-width', '5')    .style('fill', 'green');"
+        var code_ex = "d3.select('body')    .append('svg')    .attr('width', 400)    .attr('height', 300)    .append('rect')    .attr('x', 5)    .attr('y', 5)    .attr('width', 60)    .attr('height', 150)    .attr('rx', 5)    .style('stroke', 'red')    .style('stroke-width', '5')    .style('fill', 'green');"
           doc_ex.open();
           doc_ex.write('<script> function main(){')
           doc_ex.write(code_ex);
