@@ -7,6 +7,11 @@ html, body {
   background: #D5D5D5;
 }
 
+.img_1 {
+  margin: 0 auto;
+  margin-left: 250px;
+}
+
 #editor {
   width: 481px;
   height: 600px;

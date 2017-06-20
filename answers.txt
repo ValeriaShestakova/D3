@@ -34,3 +34,81 @@ d3.select('body')
 	.style('stroke', 'red')   
 	.style('stroke-width', '5')    
 	.style('fill', 'green');
+4)
+ d3.select('body')
+	.append('svg')
+	.attr('width', 400)
+	.attr('height', 300)   
+	.append('polygon')
+	.attr('points', '50,250 150,50 250,250')
+	.style('stroke-width', '3')
+	.style('stroke', 'green') 
+	.style('fill', 'blue');
+ 5)
+var g = d3.select("body").append("svg").attr("width", 400).attr("height",300).append("g");
+
+g.append("circle")
+    
+.style("fill", "pink")
+    
+.style("stroke", "blue")
+    
+.style("stroke-width", "2") 
+    
+.attr("cx", 100)
+    
+.attr("cy", 100)
+    
+.attr("r", 60);
+     
+
+g.append("rect")
+    
+.style("fill", "yellow")
+    
+.style("stroke", "red")
+    
+.style("stroke-width", "2")
+    
+.attr("x", 30)
+    
+.attr("y", 20)
+    
+.attr("width", 100) 
+    
+.attr("height", 120)
+    
+.attr("rx", 5);
+
+6) var g = d3.select("body").append("svg").attr("width", 400).attr("height",300).append("g");
+g.append("rect")
+.style("fill", "white")
+.style("stroke", "red")
+.style("stroke-width", "2")
+.attr("x", 50)
+.attr("y", 100)
+.attr("width", 150) 
+.attr("height", 150)
+.attr("rx", 5);
+g.append("polygon")
+    .attr('points', '50,100 125,50 200,100')
+	.style('stroke-width', '2')
+	.style('stroke', 'green') 
+	.style('fill', 'white');	
+g.append("rect")
+.style("fill", "white")
+.style("stroke", "blue")
+.style("stroke-width", "2")
+.attr("x", 100)
+.attr("y", 150)
+.attr("width", 50) 
+.attr("height",50)
+.attr("rx", 10);
+g.append("circle")
+.style("fill", "yellow")
+.style("stroke", "orange")
+.style("stroke-width", "2")
+.attr("cx", 250)
+.attr("cy", 50)
+.attr("r", 40);
+                 
